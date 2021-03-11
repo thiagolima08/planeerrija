@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@email.com",
+      "password": "john123",
+      "birthday": "01/01/1978"
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "email": "janedoe@email.com",
+      "password": "jane123",
+      "birthday": "22/07/1989"
+    },
+    {
+      "id": 3,
+      "name": "Jill Doe",
+      "email": "jilldoe@email.com",
+      "password": "jill123",
+      "birthday": "18/08/1992"
+    },
+    {
+      "id": 4,
+      "name": "Thiago",
+      "email": "thiago@email.com",
+      "password": "123",
+      "birthday": "01/02/1988"
+    },
+    {
+      "id": 5,
+      "name": "Fulano",
+      "email": "fulano@email.com",
+      "password": "123456789",
+      "birthday": "2021-03-01T03:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "name": "Cicrano",
+      "email": "cicrano@email.com",
+      "password": "789456",
+      "birthday": "05/03/2021"
+    }
+  ]
+}

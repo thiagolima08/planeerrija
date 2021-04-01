@@ -9,9 +9,9 @@ import {Observable} from 'rxjs';
 })
 export class UserService {
 
-  // URL_USERS = 'https://my-json-server.typicode.com/thiagolima08/planeerija/users/';
+  URL_USERS = 'https://my-json-server.typicode.com/thiagolima08/planeerrija/users/';
   // URL_USERS =  'https://plannerrijabackend.herokuapp.com/users/'
-  URL_USERS = 'http://localhost:3000/users/';
+  // URL_USERS = 'http://localhost:3000/users/';
 
   constructor(private httpClient: HttpClient) {}
 

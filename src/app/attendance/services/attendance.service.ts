@@ -9,9 +9,9 @@ import {Observable} from 'rxjs';
 })
 export class AttendanceService {
 
-  // URL_ATTENDANCE = 'https://my-json-server.typicode.com/thiagolima08/planeerija/attendance/';
+  URL_ATTENDANCE = 'https://my-json-server.typicode.com/thiagolima08/planeerrija/attendance/';
   // URL_ATTENDANCE =  'https://plannerrijabackend.herokuapp.com/attendance/
-  URL_ATTENDANCE = 'http://localhost:3000/attendance/';
+  // URL_ATTENDANCE = 'http://localhost:3000/attendance/';
 
   constructor(private httpClient: HttpClient) {}
 

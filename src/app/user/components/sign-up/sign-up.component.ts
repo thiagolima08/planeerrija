@@ -36,7 +36,8 @@ export class SignUpComponent implements OnInit {
   }
 
   onFormSubmit(): void {
-    alert(JSON.stringify(this.userNew, null, 2));
+    // alert(JSON.stringify(this.userNew, null, 2));
+    alert('Cadastro realizado com sucesso!');
     this.form.reset();
   }
 }

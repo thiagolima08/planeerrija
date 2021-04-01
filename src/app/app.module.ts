@@ -6,10 +6,17 @@ import { AppComponent } from './app.component';
 import {MaterialModule} from './material.module';
 import {UserModule} from './user/user.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AddClientStackComponent } from './attendance/components/add-client-stack/add-client-stack.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { StackAttendanceComponent } from './attendance/components/stack-attendance/stack-attendance.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddClientStackComponent,
+    HomeComponent,
+    StackAttendanceComponent
   ],
   imports: [
     BrowserModule,
@@ -17,6 +24,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MaterialModule,
     UserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

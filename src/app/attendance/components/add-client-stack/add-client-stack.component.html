@@ -1,0 +1,35 @@
+<section>
+  <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+    <div class="form-container">
+      <mat-form-field appearance="fill" color="warn">
+        <mat-label>Nome do tutor</mat-label>
+        <input matInput formControlName="tutorName">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" color="warn">
+        <mat-label>Nome do pet</mat-label>
+        <input matInput formControlName="petName">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" color="warn">
+        <mat-label>Tipo do pet</mat-label>
+        <input matInput formControlName="petType">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" color="warn">
+        <mat-label>Descrição para atendimento</mat-label>
+        <input matInput  formControlName="description">
+      </mat-form-field>
+      <br>
+      <button
+        mat-fab
+        color="warn"
+        matTooltip="Adicionar"
+        (click)="insertAttendance()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </form>
+  <br>
+</section>
+

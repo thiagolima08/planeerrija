@@ -1,0 +1,41 @@
+<app-menu-bar></app-menu-bar>
+<br>
+<div class="filter" style="display: flex; justify-content: center;" #target>
+  <mat-form-field color="warn" style="min-width: 350px;">
+    <mat-label>Buscar</mat-label>
+    <input matInput placeholder="filtre por qualquer campo" (keyup)="filtrar(inputFiltro.value);" (focus)="scroll(target)" #inputFiltro>
+  </mat-form-field>
+</div>
+<mat-table [dataSource]="dataSource" style="padding: 10px">
+  <mat-header-row *matHeaderRowDef="showColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: showColumns;"></mat-row>
+
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{item.id}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="tutor">
+    <mat-header-cell *matHeaderCellDef>Tutor</mat-header-cell>
+    <mat-cell *matCellDef="let item">
+        {{ item.tutorName }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="pet">
+    <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{item.petName}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <mat-header-cell *matHeaderCellDef>Tipo do Pet</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{item.petType}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef>Descrição</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{item.description}}</mat-cell>
+  </ng-container>
+
+</mat-table>
+

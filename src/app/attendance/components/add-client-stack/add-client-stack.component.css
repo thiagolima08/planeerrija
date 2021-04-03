@@ -3,6 +3,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+section{
   height: 100vh;
 }
 

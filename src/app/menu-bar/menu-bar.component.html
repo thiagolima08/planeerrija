@@ -1,0 +1,14 @@
+<mat-toolbar color="warn" style="display: grid;grid-template-columns: 1fr 1fr">
+  <div class="menu">
+    <button mat-button [matMenuTriggerFor]="menu">Planeerrija</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item><a routerLink="/add-client-stack">Adicionar na fila</a></button>
+      <button mat-menu-item><a routerLink="/stack-attendance">Verificar fila</a></button>
+    </mat-menu>
+  </div>
+  <div class="logout" style="display: flex;justify-content: flex-end">
+    <button mat-button color="warn" matTooltip="Logout" (click)="logout()">
+      <mat-icon style="color: white">logout</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

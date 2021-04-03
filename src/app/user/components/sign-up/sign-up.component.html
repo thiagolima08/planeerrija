@@ -1,6 +1,8 @@
 <section>
   <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
     <div class="form-container">
+      <mat-card-title>Cadastro</mat-card-title>
+      <br>
       <mat-form-field appearance="fill" color="warn">
         <mat-label>Nome</mat-label>
         <input matInput formControlName="name">
@@ -12,25 +14,24 @@
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill" color="warn">
+        <mat-label>Tipo</mat-label>
+        <select matNativeControl formControlName="type" name="type">
+          <option value="" selected></option>
+          <option *ngFor="let type of types" [value]="type.value">
+            {{type.viewValue}}
+          </option>
+        </select>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" color="warn">
         <mat-label>Senha</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
       <br>
-      <mat-form-field appearance="fill" color="warn">
-        <mat-label>Data de Nascimento</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="birthday">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-      <br>
-      <button
-        mat-fab
-        color="warn"
-        matTooltip="Cadastrar"
-        (click)="insertUser()">
+      <button mat-fab color="warn" matTooltip="Cadastrar">
         <mat-icon>add</mat-icon>
       </button>
     </div>

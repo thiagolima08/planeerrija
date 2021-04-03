@@ -6,17 +6,20 @@ import { MaterialModule } from '../material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
   ],
   declarations: [
-    SignUpComponent
+    SignUpComponent,
+    LoginComponent
   ],
-  exports: [
-    SignUpComponent
-],
+    exports: [
+        SignUpComponent,
+        LoginComponent
+    ],
   imports: [
     CommonModule,
     ReactiveFormsModule,

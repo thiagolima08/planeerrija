@@ -1,9 +1,9 @@
-
 main{
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  height: 100vh;
 }
 
 main .hero img{
@@ -12,13 +12,3 @@ main .hero img{
   margin-top: 10px;
 }
 
-@media screen and (min-width: 760px){
-  main{
-    flex-direction: row;
-  }
-
-  main .hero img{
-    height: 80vh;
-    display: block;
-  }
-}

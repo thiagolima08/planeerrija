@@ -1,13 +1,1 @@
-<mat-toolbar color="warn">
-  <div class="menu">
-    <button mat-button [matMenuTriggerFor]="menu">Planeerija</button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item><a routerLink="">Página Inicial</a></button>
-      <button mat-menu-item><a routerLink="/sign-up">Cadastrar usuário</a></button>
-      <button mat-menu-item><a routerLink="/add-client-stack">Adicionar na fila</a></button>
-      <button mat-menu-item><a routerLink="/stack-attendance/:id">Verificar fila</a></button>
-    </mat-menu>
-  </div>
-</mat-toolbar>
-<br>
 <router-outlet></router-outlet>

@@ -10,13 +10,17 @@ import { AddClientStackComponent } from './attendance/components/add-client-stac
 import {ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { StackAttendanceComponent } from './attendance/components/stack-attendance/stack-attendance.component';
+import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddClientStackComponent,
     HomeComponent,
-    StackAttendanceComponent
+    StackAttendanceComponent,
+    MenuBarComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,11 @@ import { StackAttendanceComponent } from './attendance/components/stack-attendan
     BrowserAnimationsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

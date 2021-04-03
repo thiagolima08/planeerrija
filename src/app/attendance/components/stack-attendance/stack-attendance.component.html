@@ -1,4 +1,6 @@
-<div class="filter" style="display: flex; justify-content: center" #target>
+<app-menu-bar></app-menu-bar>
+<br>
+<div class="filter" style="display: flex; justify-content: center;" #target>
   <mat-form-field color="warn" style="min-width: 350px;">
     <mat-label>Buscar</mat-label>
     <input matInput placeholder="filtre por qualquer campo" (keyup)="filtrar(inputFiltro.value);" (focus)="scroll(target)" #inputFiltro>

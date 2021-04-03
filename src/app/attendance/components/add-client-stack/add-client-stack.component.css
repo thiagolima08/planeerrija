@@ -1,9 +1,14 @@
 .form-container{
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
 
+section{
+  height: 100vh;
+}
+
 .form-container mat-form-field{
-  width: 500px;
+  width: 45vw;
 }

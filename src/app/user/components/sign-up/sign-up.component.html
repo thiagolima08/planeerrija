@@ -14,6 +14,16 @@
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill" color="warn">
+        <mat-label>Tipo</mat-label>
+        <select matNativeControl formControlName="type" name="type">
+          <option value="" selected></option>
+          <option *ngFor="let type of types" [value]="type.value">
+            {{type.viewValue}}
+          </option>
+        </select>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" color="warn">
         <mat-label>Senha</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
         <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">

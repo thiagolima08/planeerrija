@@ -5,16 +5,28 @@ import {User} from '../../models/User';
 import {Router} from '@angular/router';
 import {HttpErrorResponse} from '@angular/common/http';
 
+interface Type {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
+
 export class SignUpComponent implements OnInit {
   userNew: User;
   form: FormGroup;
   hide = true;
   Error = false;
+  selectedType: string;
+
+  types: Type[] = [
+    {value: 'REC', viewValue: 'Recepcionista'},
+    {value: 'VET', viewValue: 'Veterinário'}
+  ];
 
   constructor(private fb: FormBuilder,
               private userService: UserService,
@@ -24,7 +36,8 @@ export class SignUpComponent implements OnInit {
     this.form = this.fb.group({
       name: [null],
       email: [null],
-      password: [null]
+      password: [null],
+      type: [null]
     });
   }
 

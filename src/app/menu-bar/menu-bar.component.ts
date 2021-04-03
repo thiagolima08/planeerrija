@@ -14,6 +14,7 @@ export class MenuBarComponent implements OnInit {
   }
 
   logout(): void {
+    localStorage.removeItem('userToken');
     this.router.navigate(['']);
   }
 

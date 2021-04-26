@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     const userEmail = this.form.value.email;
     const password = this.form.value.password;
     this.userService.userAuthentication(userEmail, password).subscribe((data: any) => {
-        localStorage.setItem('userToken', data.access_token);
+        localStorage.setItem('userToken', data.token);
         this.router.navigate(['/add-client-stack']);
         this.form.reset();
       },

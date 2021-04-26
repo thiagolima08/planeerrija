@@ -6,22 +6,27 @@
     <br>
     <mat-form-field appearance="fill" color="warn">
       <mat-label>Nome do tutor</mat-label>
-      <input matInput formControlName="tutorName">
+      <input matInput formControlName="owner_name">
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill" color="warn">
       <mat-label>Nome do pet</mat-label>
-      <input matInput formControlName="petName">
+      <input matInput formControlName="pet_name">
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill" color="warn">
       <mat-label>Tipo do pet</mat-label>
-      <input matInput formControlName="petType">
+      <select matNativeControl formControlName="pet_type" name="type">
+        <option value="" selected></option>
+        <option *ngFor="let type of types" [value]="type.value">
+          {{type.viewValue}}
+        </option>
+      </select>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill" color="warn">
       <mat-label>Descrição para atendimento</mat-label>
-      <input matInput  formControlName="description">
+      <input matInput formControlName="description">
     </mat-form-field>
     <br>
     <button

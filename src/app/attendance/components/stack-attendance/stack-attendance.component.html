@@ -1,9 +1,9 @@
 <app-menu-bar></app-menu-bar>
 <br>
-<div class="filter" style="display: flex; justify-content: center;" #target>
+<div class="filter" style="display: flex; justify-content: center;" >
   <mat-form-field color="warn" style="min-width: 350px;">
     <mat-label>Buscar</mat-label>
-    <input matInput placeholder="filtre por qualquer campo" (keyup)="filtrar(inputFiltro.value);" (focus)="scroll(target)" #inputFiltro>
+    <input matInput placeholder="filtre por qualquer campo" (keyup)="filtrar(inputFiltro.value);"  #inputFiltro>
   </mat-form-field>
 </div>
 <mat-table [dataSource]="dataSource" style="padding: 10px">
@@ -18,23 +18,31 @@
   <ng-container matColumnDef="tutor">
     <mat-header-cell *matHeaderCellDef>Tutor</mat-header-cell>
     <mat-cell *matCellDef="let item">
-        {{ item.tutorName }}
+        {{ item.owner_name }}
     </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="pet">
     <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
-    <mat-cell *matCellDef="let item">{{item.petName}}</mat-cell>
+    <mat-cell *matCellDef="let item">{{item.pet_name}}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="type">
     <mat-header-cell *matHeaderCellDef>Tipo do Pet</mat-header-cell>
-    <mat-cell *matCellDef="let item">{{item.petType}}</mat-cell>
+    <mat-cell *matCellDef="let item">{{item.pet_type ==='CAT' ? 'Gato':'Cachorro'}}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="description">
     <mat-header-cell *matHeaderCellDef>Descrição</mat-header-cell>
     <mat-cell *matCellDef="let item">{{item.description}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell  *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let item" >
+      <button mat-button (click)="chamar(item.id)" matTooltip="Chamar"><mat-icon style="color: greenyellow">done</mat-icon></button>
+      <button mat-button (click)="excluir(item.id)" matTooltip="Excluir"><mat-icon style="color: red">cancel</mat-icon></button>
+    </mat-cell>
   </ng-container>
 
 </mat-table>

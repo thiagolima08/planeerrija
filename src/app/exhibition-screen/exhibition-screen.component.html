@@ -1,0 +1,16 @@
+<section>
+  <app-menu-bar></app-menu-bar>
+<!--  <ul *ngIf="attendanceNow">-->
+<!--    <li>{{attendanceNow.owner_name}}</li>-->
+<!--    <li>{{attendanceNow.pet_name}}</li>-->
+<!--  </ul>-->
+  <mat-card *ngIf="attendanceNow" style="height: 50vh">
+    <div style="display: flex;justify-content: center;align-items:center;flex-direction: column;height: 50vh">
+      <mat-card-title style="font-size: 10vw">{{attendanceNow.owner_name}} e {{attendanceNow.pet_name}}</mat-card-title>
+    </div>
+  </mat-card>
+  <mat-list *ngFor="let attendance of attendancePrevious" role="list">
+    <mat-list-item *ngIf="attendance" role="listitem">Tutor: {{attendance.owner_name}} Pet:{{attendance.pet_name}}</mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+</section>

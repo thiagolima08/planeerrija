@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Attendance} from '../../model/Attendance';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AttendanceService} from '../../../attendance/services/attendance.service';
+
+interface Type {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-add-client-stack',
@@ -13,15 +18,20 @@ export class AddClientStackComponent implements OnInit {
   form: FormGroup;
   hide = true;
 
+  types: Type[] = [
+    {value: 'CAT', viewValue: 'Gato'},
+    {value: 'DOG', viewValue: 'Cachorro'}
+  ];
+
   constructor(private fb: FormBuilder,
               private attendanceService: AttendanceService) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
       id: [null],
-      tutorName: [null],
-      petName: [null],
-      petType: [null],
+      owner_name: [null],
+      pet_name: [null],
+      pet_type: [null],
       description: [null]
     });
   }
@@ -36,7 +46,7 @@ export class AddClientStackComponent implements OnInit {
 
   onFormSubmit(): void {
     // alert(JSON.stringify(this.userNew, null, 2));
-    alert('Cliente inserido na lista com sucesso!');
+    alert('Atendimento inserido na lista com sucesso!');
     this.form.reset();
   }
 }

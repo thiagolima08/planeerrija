@@ -1,7 +1,7 @@
 export class Attendance{
   id?: string;
-  tutorName?: string;
-  petName?: string;
-  petType?: string;
+  owner_name?: string;
+  pet_name?: string;
+  pet_type?: string;
   description?: string;
 }

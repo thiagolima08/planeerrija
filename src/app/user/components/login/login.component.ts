@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {HttpErrorResponse} from '@angular/common/http';
 import {UserService} from '../../services/user.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -17,12 +18,20 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private router: Router,
-              private userService: UserService) { }
+              private userService: UserService,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
       email: [null],
       password: [null]
+    });
+  }
+
+  openSnackBar(err) {
+    this.snackBar.open(err,'', {
+      duration: 2500,
+      panelClass: ['warn']
     });
   }
 
@@ -36,11 +45,13 @@ export class LoginComponent implements OnInit {
       },
       (err: HttpErrorResponse) => {
         this.isLoginError = true;
+        // alert(err);
+        this.openSnackBar(err);
       });
   }
 
   redirect(): void{
     this.router.navigate(['/sign-up']);
   }
-
 }
+

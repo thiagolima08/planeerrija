@@ -1,7 +1,8 @@
-import {HttpInterceptor, HttpRequest, HttpHandler, HttpEvent} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import {catchError} from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -11,7 +12,19 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (req.headers.get('No-Auth') === 'True') {
-      return next.handle(req.clone());
+      return next.handle(req.clone())
+        .pipe(
+        catchError((error: HttpErrorResponse) => {
+          let errorMessage = '';
+          if (error.error instanceof ErrorEvent) {
+              errorMessage = 'Credenciais inválidas, tente novamente!';
+          }else {
+            // server-side error
+            errorMessage = 'Credenciais inválidas, tente novamente!';
+          }
+          return throwError(errorMessage);
+        })
+      );
     }
 
     if (localStorage.getItem('userToken') != null) {

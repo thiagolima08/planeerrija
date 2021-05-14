@@ -14,6 +14,7 @@ import {AuthInterceptor} from './auth/auth.interceptor';
 import {AddClientStackComponent} from './attendance/components/add-client-stack/add-client-stack.component';
 import {StackAttendanceComponent} from './attendance/components/stack-attendance/stack-attendance.component';
 import {ExhibitionScreenComponent} from './exhibition-screen/exhibition-screen.component';
+import { HistoryAttendanceComponent } from './attendance/components/history-attendance/history-attendance.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {ExhibitionScreenComponent} from './exhibition-screen/exhibition-screen.c
     MenuBarComponent,
     AddClientStackComponent,
     StackAttendanceComponent,
-    ExhibitionScreenComponent
+    ExhibitionScreenComponent,
+    HistoryAttendanceComponent
   ],
   imports: [
     BrowserModule,

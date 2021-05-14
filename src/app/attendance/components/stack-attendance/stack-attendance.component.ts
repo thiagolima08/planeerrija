@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {Attendance} from '../../model/Attendance';
 import {AttendanceService} from '../../services/attendance.service';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-stack-attendance',
@@ -16,7 +15,7 @@ export class StackAttendanceComponent implements OnInit {
   dataSource: MatTableDataSource<Attendance>;
   showColumns = ['id', 'tutor', 'pet', 'type', 'description', 'actions'];
 
-  constructor(private attendanceService: AttendanceService, private route: Router) { }
+  constructor(private attendanceService: AttendanceService) { }
 
   ngOnInit(): void {
     this.attendanceService.getAttendances().subscribe(
@@ -34,7 +33,8 @@ export class StackAttendanceComponent implements OnInit {
   }
 
   excluir(id: number): void{
-    // this.attendanceService.deleteAttendanceOnScreen(id);
+    this.attendanceService.deleteAttendance(id).subscribe();
+    this.dataSource = new MatTableDataSource(this.dataSource.filteredData.filter(i => Number(i.id) !== id));
     alert('Atendimento Excluído:' + id);
   }
 

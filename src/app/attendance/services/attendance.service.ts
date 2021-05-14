@@ -21,6 +21,12 @@ export class AttendanceService {
     return this.httpClient.get<Attendance[]>(this.URL_ATTENDANCE, { headers: reqHeader });
   }
 
+  getAttendancesHistory(): Observable<Attendance[]> {
+    const token = localStorage.getItem('userToken');
+    const reqHeader = new HttpHeaders({Authorization: `Bearer: ${token}` });
+    return this.httpClient.get<Attendance[]>(`${this.URL_ATTENDANCE}/history`, { headers: reqHeader });
+  }
+
   getAttendance(id: number): Observable<Attendance> {
     const token = localStorage.getItem('userToken');
     const reqHeader = new HttpHeaders({Authorization: `Bearer: ${token}` });
@@ -48,7 +54,7 @@ export class AttendanceService {
   deleteAttendance(id: number): Observable<any> {
     const token = localStorage.getItem('userToken');
     const reqHeader = new HttpHeaders({Authorization: `Bearer: ${token}` });
-    return this.httpClient.delete<Attendance>(`${this.URL_ATTENDANCE}${id}`, { headers: reqHeader });
+    return this.httpClient.delete<Attendance>(`${this.URL_ATTENDANCE}/${id}`, { headers: reqHeader });
   }
 
 }

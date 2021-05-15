@@ -11,7 +11,7 @@ import {AttendanceService} from '../../services/attendance.service';
 export class HistoryAttendanceComponent implements OnInit {
 
   dataSource: MatTableDataSource<Attendance>;
-  showColumns = ['id', 'tutor', 'pet', 'type', 'description'];
+  showColumns = ['id', 'tutor', 'pet', 'type', 'description', 'date', 'arrived_datetime', 'attendance_datetime'];
 
   constructor(private attendanceService: AttendanceService) { }
 

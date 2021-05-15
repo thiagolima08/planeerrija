@@ -39,9 +39,19 @@
     <mat-cell *matCellDef="let item">{{item.description}}</mat-cell>
   </ng-container>
 
-<!--  <ng-container matColumnDef="date">-->
-<!--    <mat-header-cell  *matHeaderCellDef></mat-header-cell>-->
-<!--    <mat-cell *matCellDef="let item" ></mat-cell>-->
-<!--  </ng-container>-->
+  <ng-container matColumnDef="date">
+    <mat-header-cell  *matHeaderCellDef>Data</mat-header-cell>
+    <mat-cell *matCellDef="let item" >{{item.consult_created_date| date:"dd/MM/yyyy"}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="arrived_datetime">
+    <mat-header-cell  *matHeaderCellDef>Hora da Chegada</mat-header-cell>
+    <mat-cell *matCellDef="let item" >{{item.consult_created_date| date:"HH:mm"}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="attendance_datetime">
+    <mat-header-cell  *matHeaderCellDef>Hora do Atendimento</mat-header-cell>
+    <mat-cell *matCellDef="let item" >{{item.consult_over_date| date:"HH:mm"}}</mat-cell>
+  </ng-container>
 
 </mat-table>

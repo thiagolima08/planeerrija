@@ -15,9 +15,11 @@ export class ExhibitionScreenComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if (StackAttendanceComponent.attendance){
      const {next, previous} = StackAttendanceComponent.attendance;
      this.attendanceNow = next;
      this.attendancePrevious = previous;
+      }
     }
 
 }
